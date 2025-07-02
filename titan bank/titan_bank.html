@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Titan Bank - Banca en línea</title>
+    <link rel="stylesheet" href="ola.css">
+
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <span class="logo-icon">🏦</span>
+                <h1>TITAN BANK</h1>
+            </div>
+        </div>
+    </header>
+
+    <!-- Página de inicio de sesión -->
+    <section class="login-page" id="loginPage">
+        <div class="login-container">
+            <h2>Iniciar Sesión</h2>
+            <form id="loginForm">
+                <div class="input-group">
+                    <label for="username">Usuario</label>
+                    <input type="text" id="username" placeholder="Ingrese su usuario" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Contraseña</label>
+                    <input type="password" id="password" placeholder="Ingrese su contraseña" required>
+                </div>
+                <button type="submit" class="login-btn">Acceder</button>
+                <a href="#" class="forgot-password">¿Olvidaste tu contraseña?</a>
+            </form>
+        </div>
+    </section>
+
+    <!-- Página de dashboard (oculta inicialmente) -->
+    <section class="dashboard-page" id="dashboardPage">
+        <div class="container">
+            <div class="welcome-message">
+                <h2>Bienvenido, <span id="userName">Usuario</span></h2>
+                <p>Último acceso: <span id="lastAccess">Hoy a las 14:30</span></p>
+                <div class="account-balance">
+                    Saldo disponible: <span id="accountBalance">$25,430.50</span>
+                </div>
+            </div>
+
+            <div class="options-grid">
+                <div class="option-card">
+                    <div class="option-icon">💳</div>
+                    <h3>Transferencias</h3>
+                    <p>Realiza transferencias entre cuentas o a otros bancos</p>
+                </div>
+                <div class="option-card">
+                    <div class="option-icon">💰</div>
+                    <h3>Pagos</h3>
+                    <p>Paga servicios, tarjetas de crédito y más</p>
+                </div>
+                <div class="option-card">
+                    <div class="option-icon">📊</div>
+                    <h3>Inversiones</h3>
+                    <p>Consulta y administra tus inversiones</p>
+                </div>
+                <div class="option-card">
+                    <div class="option-icon">📱</div>
+                    <h3>Tarjetas</h3>
+                    <p>Administra tus tarjetas de crédito y débito</p>
+                </div>
+                <div class="option-card">
+                    <div class="option-icon">📅</div>
+                    <h3>Historial</h3>
+                    <p>Consulta tus movimientos y estados de cuenta</p>
+                </div>
+                <div class="option-card">
+                    <div class="option-icon">⚙️</div>
+                    <h3>Configuración</h3>
+                    <p>Personaliza tu cuenta y preferencias</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">Aviso Legal</a>
+                <a href="#">Seguridad</a>
+                <a href="#">Tarifas</a>
+                <a href="#">Contacto</a>
+                <a href="#">Ayuda</a>
+            </div>
+            <p class="copyright">© 2023 Titan Bank. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simulación de inicio de sesión
+        document.getElementById('loginForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const username = document.getElementById('username').value;
+
+            // Mostrar dashboard y ocultar login
+            document.getElementById('loginPage').style.display = 'none';
+            document.getElementById('dashboardPage').style.display = 'block';
+
+            // Actualizar nombre de usuario
+            document.getElementById('userName').textContent = username;
+
+            // Simular saldo aleatorio
+            const randomBalance = (Math.random() * 50000 + 1000).toFixed(2);
+            document.getElementById('accountBalance').textContent = '$' + randomBalance.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        });
+    </script>
+</body>
+
+</html>
